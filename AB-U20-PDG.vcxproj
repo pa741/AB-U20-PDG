@@ -20,15 +20,20 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h" />
+    <ClInclude Include="AbsPersona.h" />
+    <ClInclude Include="Cita.h" />
     <ClInclude Include="IDataProvider.h" />
+    <ClInclude Include="IRecord.h" />
+    <ClInclude Include="Medico.h" />
+    <ClInclude Include="Persona.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AB-U20-PDG.cpp" />
-    <ClCompile Include="AbsPersona.cpp" />
+    <ClCompile Include="Cita.cpp" />
+    <ClCompile Include="DBProvider.cpp" />
     <ClCompile Include="FileProvider.cpp" />
-    <ClCompile Include="Gestion\IDataProvider.cpp" />
-    <ClCompile Include="IRecord.cpp" />
-    <ClCompile Include="Models\Paciente.cpp" />
+    <ClCompile Include="Medico.cpp" />
+    <ClCompile Include="Paciente.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

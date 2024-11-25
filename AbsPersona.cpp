@@ -1,6 +1,1 @@
 struct AbsPersona {
-public:
-	AbsPersona() {
-
-	}
-};

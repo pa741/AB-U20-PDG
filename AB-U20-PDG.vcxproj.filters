@@ -16,39 +16,60 @@
     <Filter Include="Archivos de origen\Models">
       <UniqueIdentifier>{a9dc74a6-60be-400f-80a5-2a8f7dee1699}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Archivos de origen\Models\Abstract">
-      <UniqueIdentifier>{cc505533-f22a-47d8-a597-fdb8f74a9615}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Archivos de origen\Models\DataProviders">
       <UniqueIdentifier>{65ebc79d-8edf-4898-ba01-e5c32045c3bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models\Data">
+      <UniqueIdentifier>{27fe07f6-4a74-4801-bf37-051a249e1a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Abstract">
+      <UniqueIdentifier>{36fc24da-c615-472d-8e38-d52b0955f870}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Data">
+      <UniqueIdentifier>{322bbbea-b41a-484b-845a-67f45358ba3c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="AbsPersona.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
     <ClInclude Include="IDataProvider.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="IRecord.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="Cita.h">
+      <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Persona.h">
+      <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Medico.h">
+      <Filter>Archivos de encabezado\Data</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AB-U20-PDG.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Models\Paciente.cpp">
-      <Filter>Archivos de origen\Models</Filter>
-    </ClCompile>
-    <ClCompile Include="IRecord.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="AbsPersona.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="Gestion\IDataProvider.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
     <ClCompile Include="FileProvider.cpp">
       <Filter>Archivos de origen\Models\DataProviders</Filter>
+    </ClCompile>
+    <ClCompile Include="DBProvider.cpp">
+      <Filter>Archivos de origen\Models\DataProviders</Filter>
+    </ClCompile>
+    <ClCompile Include="Paciente.cpp">
+      <Filter>Archivos de origen\Models\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Medico.cpp">
+      <Filter>Archivos de origen\Models\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="Cita.cpp">
+      <Filter>Archivos de origen\Models\Data</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
