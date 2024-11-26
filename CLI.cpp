@@ -87,10 +87,10 @@ void CLI::MostrarMenuPacientes()
 
 void CLI::MostrarPacientes()
 {
-	list<Paciente*> lista = Pacientes->GetResults();
-	for (Paciente* var : lista)
+	list<Paciente> lista = Pacientes->GetResults();
+	for (Paciente var : lista)
 	{
-		cout << var->Nombre + "\n";
+		cout << var.Nombre + "\n";
 	}
 }
 

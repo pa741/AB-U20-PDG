@@ -16,12 +16,12 @@ public:
 		basePath = "C:\\data\\";
 }
 
-	virtual list<Medico*> GetMedicos() const;
-	virtual list<Paciente*> GetPacientes() const;
-	virtual list<Cita*> GetCitas() const;
-	virtual Medico* GetMedico(string dni) const;
-	virtual Paciente* GetPaciente(string dni) const;
-	virtual Cita* GetCita(string dniPac, string dniMed) const;
+	virtual list<Medico> GetMedicos() const;
+	virtual list<Paciente> GetPacientes() const;
+	virtual list<Cita> GetCitas() const;
+	virtual Medico GetMedico(string dni) const;
+	virtual Paciente GetPaciente(string dni) const;
+	virtual Cita GetCita(string dniPac, string dniMed) const;
 
 	virtual bool UpdateMedico(Medico* medico) const;
 	virtual bool UpdatePaciente(Paciente* paciente) const;

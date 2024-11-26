@@ -10,8 +10,9 @@ list<T> AbsSearchable<T>::GetResults() const {
 	}
 	return items;
 }*/
+
 template <typename T>
-void AbsSearchable<T>::ToggleFiltro(Filtro<T*> filtro) {
+void AbsSearchable<T>::ToggleFiltro(Filtro<T> filtro) {
 	bool found = false;
 	for each (Filtro<T> filto in ActiveFiltros)
 	{
@@ -28,4 +29,4 @@ void AbsSearchable<T>::ToggleFiltro(Filtro<T*> filtro) {
 }
 
 template<typename T>
-list<Filtro<T*>> AbsSearchable<T>::AllFiltros() const { return NULL;}
+list<Filtro<T>> AbsSearchable<T>::AllFiltros() const { return NULL;}

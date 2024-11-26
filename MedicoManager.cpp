@@ -1,7 +1,7 @@
 #include "MedicoManager.h"
 #include "Medico.h"
 #include <iostream>
-list<Medico*> MedicoManager::GetAllItems() const
+list<Medico> MedicoManager::GetAllItems() const
 {
 	return ProveedorDatos->GetMedicos();;
 }

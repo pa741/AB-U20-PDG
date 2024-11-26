@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
-list<Paciente*> PacienteManager::GetAllItems() const
+list<Paciente> PacienteManager::GetAllItems() const
 {
 	return ProveedorDatos->GetPacientes();;
 }
