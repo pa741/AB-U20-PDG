@@ -27,8 +27,7 @@ int GetOption() {
 bool CLI::Run()
 {
 	MostrarMenu();
-	string respuesta;
-	cin >> respuesta;
+
 	int option = GetOption();
 	if (option == -1) return false;
 	switch (option)
@@ -81,7 +80,14 @@ void CLI::MostrarMenuPacientes()
 
 bool CLI::RunMostrarPacientes(int* page)
 {
-	cout << "Abriendo buscador...\n";
+	cout << "-------------------------------------------------\n";
+
+	bool hasResults = MostrarPacientes(*page);
+	if (!hasResults) {
+		(*page)--;
+		cout << "Has llegado al final \n";
+	}
+	MostrarPacientesMenu(page);
 
 	int option = GetOption();
 	if (option == -1) return false;
@@ -94,24 +100,31 @@ bool CLI::RunMostrarPacientes(int* page)
 			cout << "Estas en el principio \n";
 			(*page) = 0;
 		}
-		
+
 		break;
 	case 2:
-	
 		(*page)++;
 		break;
+	case 3:
+
 	case 0:
 	default:
 		cout << "Volviendo al menu...\n";
 
 		return false;
 	}
-	bool hasResults = MostrarPacientes(*page);
-	if (!hasResults) {
-		(*page)--;
-		cout << "Has llegado al final \n";
-	}
+
 	return true;
+}
+void CLI::MostrarPacientesMenu(int* page) {
+	cout << "-------------------------------------------------\n";
+	cout << "LISTA PACIENTES - PAGINA " + (std::to_string(*page)) + "\n";
+	cout << "0. Salir\n";
+	cout << "1. Pagina Anterior\n";
+	cout << "2. Pagina Siguiente\n";
+	cout << "3. Seleccionar Paciente\n";
+
+
 }
 
 bool CLI::MostrarPacientes(int page)
@@ -122,13 +135,25 @@ bool CLI::MostrarPacientes(int page)
 	if (lista.empty()) {
 		return false;
 	}
+	int i = 0;
+	cout << "\tNOMBRE\t\tDNI\n";
+	cout << "--------------------------------------\n";
+
+
 	for (Paciente var : lista)
 	{
-		cout << var.Nombre + "\n";
+		i++;
+		cout << std::to_string(i)+ ".\t"+var.Nombre + "\t\t"+var.DNI+"\n";
 	}
 	return true;
 }
 
+bool CLI::RunSeleccionarPaciente(int page) {
+	return false;
+}
+void CLI::MenuSeleccionarPaciente() {
+
+}
 void CLI::DarAltaPaciente()
 {
 	if (Pacientes->DarAlta()) {
