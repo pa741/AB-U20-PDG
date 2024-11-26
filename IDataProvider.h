@@ -1,14 +1,22 @@
 #pragma once
+#include <string>
+class Medico;
+class Paciente;
+class Cita;
 using namespace std;
-namespace Abstract {
-	class IDataProvider
-	{
-		virtual bool UpdateMedico() { false; };
-		virtual bool UpdatePaciente() { false; };
-		virtual bool UpdateCita() { false; };
-		virtual bool DeleteMedico() { false; };
-		virtual bool DeleteCita() { false; };
-		virtual bool DeletePaciente() { false; };
+class IDataProvider
+{
+public:
 
-	};
-}
+	virtual Medico* GetMedico(string dni) const;
+	virtual Paciente* GetPaciente(string dni) const;
+	virtual Cita* GetCita(string dniPac, string dniMed) const;
+
+	virtual bool UpdateMedico();
+	virtual bool UpdatePaciente();
+	virtual bool UpdateCita();
+	virtual bool DeleteMedico();
+	virtual bool DeleteCita();
+	virtual bool DeletePaciente();
+
+};

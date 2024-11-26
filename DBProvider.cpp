@@ -1,7 +1,5 @@
-using namespace std;
 #include "IDataProvider.h";
-using namespace Abstract;
-
+using namespace std;
 class DbProvider : IDataProvider {
 
 

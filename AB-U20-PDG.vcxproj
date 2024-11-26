@@ -25,13 +25,16 @@
     <ClInclude Include="IDataProvider.h" />
     <ClInclude Include="IRecord.h" />
     <ClInclude Include="Medico.h" />
-    <ClInclude Include="Persona.h" />
+    <ClInclude Include="Paciente.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AB-U20-PDG.cpp" />
+    <ClCompile Include="AbsPersona.cpp" />
     <ClCompile Include="Cita.cpp" />
     <ClCompile Include="DBProvider.cpp" />
     <ClCompile Include="FileProvider.cpp" />
+    <ClCompile Include="IDataProvider.cpp" />
+    <ClCompile Include="IRecord.cpp" />
     <ClCompile Include="Medico.cpp" />
     <ClCompile Include="Paciente.cpp" />
   </ItemGroup>

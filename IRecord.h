@@ -1,16 +1,15 @@
 #include <string>
 #include "IDataProvider.h"
 using namespace std;
-namespace Abstract {
-	class IRecord
+class IRecord
+{
+public:
+	IDataProvider* ProveedorDatos;
+	IRecord(IDataProvider* proveedor) : ProveedorDatos{proveedor}
 	{
-	public:
-		IRecord(IDataProvider proveedor) {
-			ProveedorDatos = proveedor;
-		}
-		bool Save() { return false; };
-		bool Delete() { return false; };
-		string ToReport() { return false; };
-		IDataProvider ProveedorDatos;
-	};
-}
+	}
+
+	bool Save();
+	bool Delete();
+	string ToReport();
+};

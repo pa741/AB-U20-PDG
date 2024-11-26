@@ -28,6 +28,9 @@
     <Filter Include="Archivos de encabezado\Data">
       <UniqueIdentifier>{322bbbea-b41a-484b-845a-67f45358ba3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\Models\Abstract">
+      <UniqueIdentifier>{b111718c-8343-4c28-a6ba-01c7287b6301}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h">
@@ -45,7 +48,7 @@
     <ClInclude Include="Cita.h">
       <Filter>Archivos de encabezado\Data</Filter>
     </ClInclude>
-    <ClInclude Include="Persona.h">
+    <ClInclude Include="Paciente.h">
       <Filter>Archivos de encabezado\Data</Filter>
     </ClInclude>
     <ClInclude Include="Medico.h">
@@ -70,6 +73,15 @@
     </ClCompile>
     <ClCompile Include="Cita.cpp">
       <Filter>Archivos de origen\Models\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="IDataProvider.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="IRecord.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="AbsPersona.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
