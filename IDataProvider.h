@@ -10,10 +10,10 @@ class IDataProvider
 public:
 
 	virtual list<Medico*> GetMedicos() const;
-	virtual Medico* GetMedico(string dni) const;
 	virtual list<Paciente*> GetPacientes() const;
-	virtual Paciente* GetPaciente(string dni) const;
 	virtual list<Cita*> GetCitas() const;
+	virtual Medico* GetMedico(string dni) const;
+	virtual Paciente* GetPaciente(string dni) const;
 	virtual Cita* GetCita(string dniPac, string dniMed) const;
 
 	virtual bool UpdateMedico(Medico* medico) const;

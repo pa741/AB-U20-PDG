@@ -24,6 +24,7 @@
     <ClInclude Include="AbsPersona.h" />
     <ClInclude Include="AbsSearchable.h" />
     <ClInclude Include="Cita.h" />
+    <ClInclude Include="CLI.h" />
     <ClInclude Include="FileProvider.h" />
     <ClInclude Include="Filtro.h" />
     <ClInclude Include="IDataProvider.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="AbsPersona.cpp" />
     <ClCompile Include="AbsSearchable.cpp" />
     <ClCompile Include="Cita.cpp" />
+    <ClCompile Include="CLI.cpp" />
     <ClCompile Include="DBProvider.cpp" />
     <ClCompile Include="FileProvider.cpp" />
     <ClCompile Include="IDataProvider.cpp" />

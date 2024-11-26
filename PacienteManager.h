@@ -1,6 +1,6 @@
 #pragma once
 #include "AbsSearchable.h"
-class PacienteManager : AbsSearchable<Paciente> {
+class PacienteManager : public AbsSearchable<Paciente> {
 
 public:
 	PacienteManager(IDataProvider* proveedor) : AbsSearchable<Paciente>(proveedor) {

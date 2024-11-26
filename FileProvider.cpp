@@ -54,7 +54,7 @@ namespace nlohmann {
 
 				j.at("DNI").get_to(p.DNI);
 				j.at("Nombre").get_to(p.Nombre);
-				j.at("Enfermedades").get_to(p.Enfermedades);
+				//j.at("Enfermedades").get_to(p.Enfermedades);
 				return p;
 			}
 		}
@@ -66,7 +66,7 @@ namespace nlohmann {
 			j = json{
 				{ "DNI", t.DNI },
 				{ "Nombre", t.Nombre },
-				{ "Enfermedades", t.Enfermedades }
+				//{ "Enfermedades", t.Enfermedades }
 			};
 		}
 	};
@@ -127,10 +127,25 @@ string ReadFile(string path) {
 	MyReadFile.close();
 	return myText;
 }
-ofstream  GetFile(string path) {
-	ofstream  file;
-	file.open(path, std::ofstream::out | std::ofstream::trunc);
+fstream  GetFile(string path) {
+	fstream  file;
+	file.open(path, std::fstream::out | std::fstream::in | std::fstream::trunc);
 	return file;
+}
+
+list<Medico*> FileProvider::GetMedicos() const
+{
+	return list<Medico*>(); // TODO
+}
+
+list<Paciente*> FileProvider::GetPacientes() const
+{
+	return list<Paciente*>();// TODO
+}
+
+list<Cita*> FileProvider::GetCitas() const
+{
+	return list<Cita*>();// TODO
 }
 
 Medico* FileProvider::GetMedico(string dni) const
@@ -151,7 +166,7 @@ Medico* FileProvider::GetMedico(string dni) const
 
 Paciente* FileProvider::GetPaciente(string dni) const
 {
-	string path = "data\\pacientes\\" + dni + ".json";
+	string path = "data/pacientes/" + dni + ".json";
 	bool exists = PathExists(path);
 	if (!exists) {
 		return nullptr;
@@ -179,48 +194,50 @@ Cita* FileProvider::GetCita(string dniPac, string dniMed) const
 bool FileProvider::UpdateMedico(Medico* medico) const
 {
 	string path = "data\\medicos\\" + medico->DNI + ".json";
-	ofstream file = GetFile(path);
+	fstream file = GetFile(path);
 	json js = *medico;
-	file << js;
+	file << js.dump();
 	file.close();
 	return true;
 }
 
 bool FileProvider::UpdatePaciente(Paciente* pac) const
 {
-	string path = "data\\pacientes\\" + pac->DNI + ".json";
-	ofstream file = GetFile(path);
+	string path = "data/pacientes/" + pac->DNI + ".json";
+	fstream file = GetFile(path);
+
 	json js = *pac;
-	file << js;
+	string text = js.dump();
+	file << text;
 	file.close();
 	return true;
 }
 
 bool FileProvider::UpdateCita(Cita* cita) const
 {
-	string path = "data\\citas\\" + cita->Paciente->DNI + "-" + cita->Medico->DNI + ".json";
-	ofstream file = GetFile(path);
+	string path =  "data\\citas\\" + cita->Paciente->DNI + "-" + cita->Medico->DNI + ".json";
+	fstream file = GetFile(path);
 	json js = *cita;
-	file << js;
+	file << js.dump();
 	file.close();
 	return true;
 }
 
 bool FileProvider::DeleteMedico(Medico* medico) const
 {
-	string path = "data\\medicos\\" + medico->DNI + ".json";
+	string path =  "data\\medicos\\" + medico->DNI + ".json";
 	return std::filesystem::remove(path);
 }
 
 bool FileProvider::DeletePaciente(Paciente* pac) const
 {
-	string path = "data\\medicos\\" + pac->DNI + ".json";
+	string path =  "data\\medicos\\" + pac->DNI + ".json";
 	return std::filesystem::remove(path);
 }
 
 bool FileProvider::DeleteCita(Cita* cita) const
 {
-	string path = "data\\citas\\" + cita->Paciente->DNI + "-" + cita->Medico->DNI + ".json";
+	string path =  "data\\citas\\" + cita->Paciente->DNI + "-" + cita->Medico->DNI + ".json";
 	return std::filesystem::remove(path);
 
 }

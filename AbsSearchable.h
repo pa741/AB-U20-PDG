@@ -7,19 +7,26 @@
 
 template <typename T>
 class AbsSearchable {
-	//static_assert(std::is_base_of<IRecord, T>::value, "T debe ser IRecord");
+	//static_assert(std::assigna<IRecord, T>::value, "T debe ser IRecord");
 
 public:
 	AbsSearchable(IDataProvider* proveedor) {
 		ProveedorDatos = proveedor;
 	}
 	IDataProvider* ProveedorDatos;
-	list<Filtro<T>> ActiveFiltros;
-	list<T*> GetAllItems() const;
-	virtual list<T> GetResults() const; 
-	void ToggleFiltro(Filtro<T> filtro);
+	list<Filtro<T*>> ActiveFiltros;
+	list<T*> GetAllItems() const { return *new list<T*>(); };
+	virtual list<T*> GetResults() const {
+		list<T*> items = GetAllItems();
+		for (Filtro<T*> filto : ActiveFiltros)
+		{
+			items = filto.filtro(items);
+		}
+		return items;
+	}
+	void ToggleFiltro(Filtro<T*> filtro);
 	//list<Filtro<T>> GetFilters()  { return ActiveFiltros; };
 protected:
-	list<Filtro<T>> AllFiltros() const;
+	list<Filtro<T*>> AllFiltros() const;
 
 };

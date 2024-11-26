@@ -43,6 +43,12 @@
     <Filter Include="Archivos de encabezado\Managers">
       <UniqueIdentifier>{9c253f28-098d-4135-9853-59e13484075e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de origen\CLI">
+      <UniqueIdentifier>{18ac1b28-0809-4803-b1d6-2ea4b0757185}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\CLI">
+      <UniqueIdentifier>{d6d52e0f-6aeb-4b65-ad50-13b140a0ef2a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h">
@@ -87,6 +93,9 @@
     <ClInclude Include="MedicoManager.h">
       <Filter>Archivos de encabezado\Managers</Filter>
     </ClInclude>
+    <ClInclude Include="CLI.h">
+      <Filter>Archivos de encabezado\CLI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AB-U20-PDG.cpp">
@@ -127,6 +136,9 @@
     </ClCompile>
     <ClCompile Include="MedicoManager.cpp">
       <Filter>Archivos de origen\Models\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="CLI.cpp">
+      <Filter>Archivos de origen\CLI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

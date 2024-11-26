@@ -1,22 +1,19 @@
 
 #include "AB-U20-PDG.h"
-#include "Paciente.h"
-using namespace std;
-
-int Add(int a, int b)
-{
-	std::cout << "En Add(), recibido " << a << " y " << b <<"\n";
-	return (a + b);
-}
-
+#include "CLI.h"
+#include "FileProvider.h"
+#include <iostream>
+#include <fstream>
 int main()
 {
-	std::cout << "En main()\n" << std::endl;
-	std::cout << "llamada Add ()\n" << std::endl;
-	std::cout << "El valor devuelto es: " <<  Add(3, 4);
-	std::cout << "\nvuelta al main ()\n" << std::endl;
-	std::cout << "\n saliendo..\n\n" << std::endl;
+	
 
+	
 
+	CLI interface = *new CLI(new FileProvider());
+	while (interface.Run())
+	{
+
+	}
 	return 0;
 }

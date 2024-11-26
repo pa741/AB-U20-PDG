@@ -5,13 +5,20 @@ using namespace std;
 class FileProvider : public IDataProvider {
 
 public: 
+	string basePath;
 	static FileProvider* getInstance()
 	{
 		static FileProvider* instance; // Guaranteed to be destroyed.
 		// Instantiated on first use.
 		return instance;
 	}
-	FileProvider() {}
+	FileProvider() {
+		basePath = "C:\\data\\";
+}
+
+	virtual list<Medico*> GetMedicos() const;
+	virtual list<Paciente*> GetPacientes() const;
+	virtual list<Cita*> GetCitas() const;
 	virtual Medico* GetMedico(string dni) const;
 	virtual Paciente* GetPaciente(string dni) const;
 	virtual Cita* GetCita(string dniPac, string dniMed) const;
