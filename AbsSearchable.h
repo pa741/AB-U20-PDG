@@ -26,17 +26,18 @@ public:
 		}
 		int offset = page * PageSize;
 		
-		list<T> result();
-		if (items.size >= offset) {
+		list<T> result = *(new list<T>());
+		if (items.size() <= offset) {
 			return result;
 		}
 		std::vector<T> v{ std::make_move_iterator(std::begin(items)),
 				  std::make_move_iterator(std::end(items)) };
-		for (int i = offset; i < v.size && i - offset < PageSize && i++) {
+		for (int i = offset; i < v.size() && i - offset < PageSize; i++) {
+			T rec = v.at(i);
 			result.push_back(v.at(i));
 		}
 
-		return items;
+		return result;
 	}
 	void ToggleFiltro(Filtro<T> filtro);
 	//list<Filtro<T>> GetFilters()  { return ActiveFiltros; };

@@ -155,7 +155,8 @@ list<Paciente> FileProvider::GetPacientes() const
 		string p = entry.path().filename().string();
 		int pos = p.find(".");
 		string dni = p.substr(0,pos);
-		result.push_back(GetPaciente(dni));
+		Paciente pac = GetPaciente(dni);
+		result.push_back(pac);
 	}
 	return result; 
 }
