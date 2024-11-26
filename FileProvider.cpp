@@ -13,6 +13,7 @@
 
 using json = nlohmann::json;
 namespace fs = std::filesystem;
+FileProvider* FileProvider::singleton_ = nullptr;
 
 
 namespace nlohmann {
@@ -132,7 +133,6 @@ fstream  GetFile(string path) {
 	file.open(path, std::fstream::out | std::fstream::in | std::fstream::trunc);
 	return file;
 }
-
 list<Medico> FileProvider::GetMedicos() const
 {
 	list<Medico> result = *(new list<Medico>());
@@ -183,7 +183,7 @@ Medico FileProvider::GetMedico(string dni) const
 	string path = "data/medicos/" + dni + ".json";
 	bool exists = PathExists(path);
 	if (!exists) {
-		return nullptr;
+		throw exception("No existe el path");
 	}
 	string text = ReadFile(path);
 	json js = json::parse(text);
@@ -198,21 +198,22 @@ Paciente FileProvider::GetPaciente(string dni) const
 	string path = "data/pacientes/" + dni + ".json";
 	bool exists = PathExists(path);
 	if (!exists) {
-		return nullptr;
+		throw exception("No existe el path");
 	}
 	string text = ReadFile(path);
 	json js = json::parse(text);
 	Paciente p = js;
+
 	return p;
 
 }
 
 Cita FileProvider::GetCita(string dniPac, string dniMed) const
 {
-	string path = "data\\citas\\" + dniPac + "-" + dniMed + ".json";
+	string path = "data/citas/" + dniPac + "-" + dniMed + ".json";
 	bool exists = PathExists(path);
 	if (!exists) {
-		return nullptr;
+		throw exception("No existe el path");
 	}
 	string text = ReadFile(path);
 	json js = json::parse(text);
@@ -222,7 +223,7 @@ Cita FileProvider::GetCita(string dniPac, string dniMed) const
 
 bool FileProvider::UpdateMedico(Medico* medico) const
 {
-	string path = "data\\medicos\\" + medico->DNI + ".json";
+	string path = "data/medicos/" + medico->DNI + ".json";
 	fstream file = GetFile(path);
 	json js = *medico;
 	file << js.dump();
@@ -244,7 +245,7 @@ bool FileProvider::UpdatePaciente(Paciente* pac) const
 
 bool FileProvider::UpdateCita(Cita* cita) const
 {
-	string path =  "data\\citas\\" + cita->Paciente.DNI + "-" + cita->Medico.DNI + ".json";
+	string path =  "data/citas/" + cita->Paciente.DNI + "-" + cita->Medico.DNI + ".json";
 	fstream file = GetFile(path);
 	json js = *cita;
 	file << js.dump();
@@ -254,19 +255,19 @@ bool FileProvider::UpdateCita(Cita* cita) const
 
 bool FileProvider::DeleteMedico(Medico* medico) const
 {
-	string path =  "data\\medicos\\" + medico->DNI + ".json";
+	string path =  "data/medicos/" + medico->DNI + ".json";
 	return std::filesystem::remove(path);
 }
 
 bool FileProvider::DeletePaciente(Paciente* pac) const
 {
-	string path =  "data\\medicos\\" + pac->DNI + ".json";
+	string path =  "data/pacientes/" + pac->DNI + ".json";
 	return std::filesystem::remove(path);
 }
 
 bool FileProvider::DeleteCita(Cita* cita) const
 {
-	string path =  "data\\citas\\" + cita->Paciente.DNI + "-" + cita->Medico.DNI + ".json";
+	string path =  "data/citas/" + cita->Paciente.DNI + "-" + cita->Medico.DNI + ".json";
 	return std::filesystem::remove(path);
 
 }

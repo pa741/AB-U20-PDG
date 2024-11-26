@@ -8,10 +8,16 @@ public:
 	string basePath;
 	static FileProvider* getInstance()
 	{
-		static FileProvider* instance; // Guaranteed to be destroyed.
+		static FileProvider instance; // Guaranteed to be destroyed.
 		// Instantiated on first use.
-		return instance;
+		if (singleton_ == nullptr) {
+			singleton_ = new FileProvider();
+		}
+		return singleton_;
 	}
+	static FileProvider* singleton_;
+
+
 	FileProvider() {
 		basePath = "C:\\data\\";
 }

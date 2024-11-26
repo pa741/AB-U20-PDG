@@ -33,7 +33,7 @@ bool CLI::Run()
 	switch (option)
 	{
 	case 1:
-		while (RunPacientes()){}
+		while (RunPacientes()) {}
 	case 0:
 	default:
 		cout << "Saliendo...";
@@ -59,7 +59,7 @@ bool CLI::RunPacientes()
 	{
 	case 1:
 		page = 0;
-		while (RunMostrarPacientes(&page) ){};
+		while (RunMostrarPacientes(&page)) {};
 		break;
 	case 2:
 		DarAltaPaciente();
@@ -105,8 +105,14 @@ bool CLI::RunMostrarPacientes(int* page)
 	case 2:
 		(*page)++;
 		break;
-	case 3:
-
+	case 3: {
+		cout << "Introduce el indice del paciente que se quiere seleccionar...\n";
+		int index = GetOption();
+		index--; // empezamos en 0;
+		Paciente pac = GetPacienteEnPag((*page), index);
+		while (RunSeleccionarPaciente(pac)) {};
+		break;
+	}
 	case 0:
 	default:
 		cout << "Volviendo al menu...\n";
@@ -123,15 +129,17 @@ void CLI::MostrarPacientesMenu(int* page) {
 	cout << "1. Pagina Anterior\n";
 	cout << "2. Pagina Siguiente\n";
 	cout << "3. Seleccionar Paciente\n";
-
-
 }
-
+Paciente CLI::GetPacienteEnPag(int page, int pos) {
+	list<Paciente> lista = Pacientes.GetResults(page);
+	std::vector<Paciente> v{ std::make_move_iterator(std::begin(lista)),
+				  std::make_move_iterator(std::end(lista)) };
+	return v.at(pos);
+}
 bool CLI::MostrarPacientes(int page)
 {
 
-
-	list<Paciente> lista = Pacientes->GetResults(page);
+	list<Paciente> lista = Pacientes.GetResults(page);
 	if (lista.empty()) {
 		return false;
 	}
@@ -143,20 +151,59 @@ bool CLI::MostrarPacientes(int page)
 	for (Paciente var : lista)
 	{
 		i++;
-		cout << std::to_string(i)+ ".\t"+var.Nombre + "\t\t"+var.DNI+"\n";
+		cout << std::to_string(i) + ".\t" + var.Nombre + "\t\t" + var.DNI + "\n";
 	}
 	return true;
 }
 
-bool CLI::RunSeleccionarPaciente(int page) {
-	return false;
+bool CLI::RunSeleccionarPaciente(Paciente pac) {
+	MenuSeleccionarPaciente(pac);
+	int opcion = GetOption();
+	if (opcion == -1) {
+		return false;
+	}
+	switch (opcion)
+	{
+	case 1:
+		cout << "Dando de baja...\n";
+		if (pac.Delete()) {
+			cout << "Paciente eliminado!\n";
+
+			return false;
+		}
+		else {
+
+			cout << "Paciente no se pudo eliminar.\n";
+		}
+		break;
+	case 2:
+	{
+		string reporte = pac.ToReport();
+
+		cout << "Reporte del paciente: \n";
+		cout << "-------------\n";
+		cout << reporte + "\n";
+		cout << "-------------\n";
+		break;
+	}
+	case 0:
+	default:
+		return false;
+	}
+
+	return true;
 }
-void CLI::MenuSeleccionarPaciente() {
+void CLI::MenuSeleccionarPaciente(Paciente pac) {
+
+	cout << "Opciones para: " + pac.Nombre + "\n";
+	cout << "0. Salir\n";
+	cout << "1. Dar de baja\n";
+	cout << "2. Ver Reporte\n";
 
 }
 void CLI::DarAltaPaciente()
 {
-	if (Pacientes->DarAlta()) {
+	if (Pacientes.DarAlta()) {
 		cout << "Paciente creado\n";
 
 	}

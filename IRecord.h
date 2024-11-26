@@ -13,7 +13,6 @@ public:
 	bool Save() ;
 	bool Delete();
 	string ToReport(); 
-protected:
 	IDataProvider* ProveedorDatos;
 
 };

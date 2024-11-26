@@ -5,7 +5,8 @@ class CLI {
 public:
 	CLI(IDataProvider* proveedor) {
 		ProveedorDatos = proveedor;
-		Pacientes = new PacienteManager(proveedor);
+	
+		Pacientes = *new PacienteManager(proveedor);
 	}
 	bool Run();
 	void MostrarMenu();
@@ -13,12 +14,13 @@ public:
 	void MostrarMenuPacientes();
 	bool RunMostrarPacientes(int* page);
 	void MostrarPacientesMenu(int* page);
+	Paciente GetPacienteEnPag(int page, int pos);
 	bool MostrarPacientes(int page);
-	bool RunSeleccionarPaciente(int page);
-	void MenuSeleccionarPaciente();
+	bool RunSeleccionarPaciente(Paciente pac);
+	void MenuSeleccionarPaciente(Paciente pac);
 	void DarAltaPaciente();
 	IDataProvider* ProveedorDatos;
-	PacienteManager* Pacientes;
+	PacienteManager Pacientes{ProveedorDatos};
 	
 	
 };

@@ -9,8 +9,9 @@ int main()
 	
 
 	
-
-	CLI interface = *new CLI(new FileProvider());
+	FileProvider* test = new FileProvider();
+	test->GetPacientes();
+	CLI interface = *new CLI(test);
 	while (interface.Run())
 	{
 
