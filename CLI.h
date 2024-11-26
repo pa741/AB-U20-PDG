@@ -11,7 +11,8 @@ public:
 	void MostrarMenu();
 	bool RunPacientes();
 	void MostrarMenuPacientes();
-	void MostrarPacientes();
+	bool RunMostrarPacientes();
+	void MostrarPacientes(int page);
 	void DarAltaPaciente();
 	IDataProvider* ProveedorDatos;
 	PacienteManager* Pacientes;

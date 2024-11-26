@@ -65,8 +65,7 @@ bool CLI::RunPacientes()
 	switch (option)
 	{
 	case 1:
-		cout << "Abriendo buscador...\n";
-		MostrarPacientes();
+		while (RunMostrarPacientes() ){};
 		break;
 	case 2:
 		DarAltaPaciente();
@@ -85,9 +84,17 @@ void CLI::MostrarMenuPacientes()
 	cout << "\n-------PACIENTES----------\n0. Ir al menu\n1. Ver Pacientes\n2. Dar Paciente de Alta\n";
 }
 
-void CLI::MostrarPacientes()
+bool CLI::RunMostrarPacientes()
 {
-	list<Paciente> lista = Pacientes->GetResults();
+	return false;
+}
+
+void CLI::MostrarPacientes(int page)
+{
+
+	cout << "Abriendo buscador...\n";
+
+	list<Paciente> lista = Pacientes->GetResults(page);
 	for (Paciente var : lista)
 	{
 		cout << var.Nombre + "\n";
