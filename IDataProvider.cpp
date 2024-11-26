@@ -1,8 +1,13 @@
 #pragma once
 #include <string>
+#include <list>
 #include "IDataProvider.h"
 
 
+
+list<Medico*> IDataProvider::GetMedicos() const { return list<Medico*>();}
+list<Cita*> IDataProvider::GetCitas() const { return list<Cita*>();}
+list<Paciente*> IDataProvider::GetPacientes() const { return list<Paciente*>();}
 
 Medico* IDataProvider::GetMedico(string dni) const { return nullptr; }
 Paciente* IDataProvider::GetPaciente(string dni) const { return nullptr; }

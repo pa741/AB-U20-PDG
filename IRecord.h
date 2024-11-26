@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include "IDataProvider.h"
 using namespace std;

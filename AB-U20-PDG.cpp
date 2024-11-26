@@ -1,6 +1,6 @@
 
 #include "AB-U20-PDG.h"
-
+#include "Paciente.h"
 using namespace std;
 
 int Add(int a, int b)

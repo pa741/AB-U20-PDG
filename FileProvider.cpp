@@ -5,8 +5,8 @@
 #include <fstream>
 #include <iostream>
 #include "json.hpp"
-#include "Medico.h"
 #include "Paciente.h"
+#include "Medico.h"
 #include "Cita.h"
 // for convenience
 

@@ -34,6 +34,15 @@
     <Filter Include="Archivos de encabezado\DataProviders">
       <UniqueIdentifier>{cd5ae7c5-acf8-42cc-8787-62db2f8b3d1b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\Search">
+      <UniqueIdentifier>{7a64cfd9-85fe-4e76-bf90-1ceb4576809f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models\Managers">
+      <UniqueIdentifier>{42283971-3a33-40f3-a2b1-246bf5f7c127}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Managers">
+      <UniqueIdentifier>{9c253f28-098d-4135-9853-59e13484075e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h">
@@ -63,6 +72,21 @@
     <ClInclude Include="json.hpp">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="AbsSearchable.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="Filtro.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="AbsOrdernable.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="PacienteManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="MedicoManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AB-U20-PDG.cpp">
@@ -91,6 +115,18 @@
     </ClCompile>
     <ClCompile Include="AbsPersona.cpp">
       <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="AbsSearchable.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="AbsOrdernable.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="PacienteManager.cpp">
+      <Filter>Archivos de origen\Models\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="MedicoManager.cpp">
+      <Filter>Archivos de origen\Models\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

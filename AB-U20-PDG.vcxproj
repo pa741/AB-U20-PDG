@@ -20,25 +20,34 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h" />
+    <ClInclude Include="AbsOrdernable.h" />
     <ClInclude Include="AbsPersona.h" />
+    <ClInclude Include="AbsSearchable.h" />
     <ClInclude Include="Cita.h" />
     <ClInclude Include="FileProvider.h" />
+    <ClInclude Include="Filtro.h" />
     <ClInclude Include="IDataProvider.h" />
     <ClInclude Include="IRecord.h" />
     <ClInclude Include="json.hpp" />
     <ClInclude Include="Medico.h" />
+    <ClInclude Include="MedicoManager.h" />
     <ClInclude Include="Paciente.h" />
+    <ClInclude Include="PacienteManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AB-U20-PDG.cpp" />
+    <ClCompile Include="AbsOrdernable.cpp" />
     <ClCompile Include="AbsPersona.cpp" />
+    <ClCompile Include="AbsSearchable.cpp" />
     <ClCompile Include="Cita.cpp" />
     <ClCompile Include="DBProvider.cpp" />
     <ClCompile Include="FileProvider.cpp" />
     <ClCompile Include="IDataProvider.cpp" />
     <ClCompile Include="IRecord.cpp" />
     <ClCompile Include="Medico.cpp" />
+    <ClCompile Include="MedicoManager.cpp" />
     <ClCompile Include="Paciente.cpp" />
+    <ClCompile Include="PacienteManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

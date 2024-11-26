@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <list>
 class Medico;
 class Paciente;
 class Cita;
@@ -8,8 +9,11 @@ class IDataProvider
 {
 public:
 
+	virtual list<Medico*> GetMedicos() const;
 	virtual Medico* GetMedico(string dni) const;
+	virtual list<Paciente*> GetPacientes() const;
 	virtual Paciente* GetPaciente(string dni) const;
+	virtual list<Cita*> GetCitas() const;
 	virtual Cita* GetCita(string dniPac, string dniMed) const;
 
 	virtual bool UpdateMedico(Medico* medico) const;
