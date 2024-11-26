@@ -4,12 +4,15 @@ using namespace std;
 class IRecord
 {
 public:
-	IDataProvider* ProveedorDatos;
+
 	IRecord(IDataProvider* proveedor) : ProveedorDatos{proveedor}
 	{
 	}
 
-	bool Save();
+	bool Save() ;
 	bool Delete();
-	string ToReport();
+	string ToReport(); 
+protected:
+	IDataProvider* ProveedorDatos;
+
 };

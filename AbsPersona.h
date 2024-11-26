@@ -4,10 +4,11 @@
 using namespace std;
 
 
-class AbsPersona : IRecord {
+class AbsPersona : public IRecord {
 public:
 	string Nombre;
 	string DNI;
+
 	AbsPersona(IDataProvider* proeedor) : IRecord(proeedor) {
 		ProveedorDatos = proeedor;
 	}
@@ -17,4 +18,7 @@ public:
 		ProveedorDatos = proeedor;
 
 	}
+	bool Save();
+	bool Delete();
+	string ToReport();
 };

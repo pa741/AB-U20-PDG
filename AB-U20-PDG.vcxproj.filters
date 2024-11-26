@@ -31,6 +31,9 @@
     <Filter Include="Archivos de origen\Models\Abstract">
       <UniqueIdentifier>{b111718c-8343-4c28-a6ba-01c7287b6301}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de encabezado\DataProviders">
+      <UniqueIdentifier>{cd5ae7c5-acf8-42cc-8787-62db2f8b3d1b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AB-U20-PDG.h">
@@ -53,6 +56,12 @@
     </ClInclude>
     <ClInclude Include="Medico.h">
       <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="FileProvider.h">
+      <Filter>Archivos de encabezado\DataProviders</Filter>
+    </ClInclude>
+    <ClInclude Include="json.hpp">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -83,5 +92,8 @@
     <ClCompile Include="AbsPersona.cpp">
       <Filter>Archivos de origen\Models\Abstract</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

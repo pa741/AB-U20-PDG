@@ -1,17 +1,16 @@
 #include "AbsPersona.h"
 #include "IDataProvider.h"
+#include "Medico.h"
 #include <list>
 
 using namespace std;
-class Medico : AbsPersona {
-public:
-	string Especialidad;
 
-
-	Medico(string nombre, string dni, IDataProvider* proveedor, string especialidad) : AbsPersona(nombre, dni, proveedor)
-	{
-		Especialidad = especialidad;
-
-	}
-
-};
+bool Medico::Save() {
+	return ProveedorDatos->UpdateMedico(this);
+}
+bool Medico::Delete() {
+	return ProveedorDatos->DeleteMedico(this);
+}
+string Medico::ToReport() {
+	return "DNI: " + DNI + "\nNombre: " + Nombre + "\nEspecialidad: " + Especialidad;
+}
