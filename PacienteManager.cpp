@@ -6,7 +6,7 @@
 #include <sstream>
 list<Paciente> PacienteManager::GetAllItems() const
 {
-	return ProveedorDatos->GetPacientes();;
+	return ProveedorDatos->GetPacientes();
 }
 
 bool PacienteManager::DarAlta() const
