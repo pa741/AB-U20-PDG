@@ -3,7 +3,7 @@
 #include "IDataProvider.h"
 #include <list>
 #include "json.hpp"
-using json = nlohmann::json;
+//using json = nlohmann::json;
 
 using namespace std;
 class Medico : public AbsPersona {

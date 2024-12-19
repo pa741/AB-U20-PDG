@@ -83,30 +83,6 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 set(PROJECT_NAME AB-U20-PDG)
 
 ################################################################################

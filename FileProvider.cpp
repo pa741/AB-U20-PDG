@@ -77,6 +77,7 @@ namespace nlohmann {
 		// one argument
 		static Cita from_json(const json& j) {
 			{
+				printf("Cita from json");
 				IDataProvider* prov = FileProvider::getInstance();
 				Cita p = *new Cita(prov);
 				string dniMed = j["Medico"];
@@ -84,8 +85,8 @@ namespace nlohmann {
 				string desc = j["Descripcion"];
 				Medico med = prov->GetMedico(dniMed);
 				Paciente pac = prov->GetPaciente(dniPac);
-				p.Medico = med;
-				p.Paciente = pac;
+				p.Doctor = med;
+				p.MedicalPatient = pac;
 				p.Descripcion = desc;
 				return p;
 
@@ -100,8 +101,8 @@ namespace nlohmann {
 		static void to_json(json& j, Cita t) {
 			j = json{
 				//{ "Paciente", t.pa },
-				{ "Medico", t.Medico.DNI },
-				{ "Paciente", t.Paciente.DNI },
+				{ "Medico", t.Doctor.DNI },
+				{ "Paciente", t.MedicalPatient.DNI },
 				{ "Descripcion", t.Descripcion }
 			};
 		}
@@ -133,11 +134,11 @@ fstream  GetFile(string path) {
 	file.open(path, std::fstream::out | std::fstream::in | std::fstream::trunc);
 	return file;
 }
-list<Medico> FileProvider::GetMedicos() const
+list<Medico> FileProvider::GetMedicos() 
 {
 	list<Medico> result = *(new list<Medico>());
 	std::string path = "data/medicos";
-	for (const auto& entry : fs::directory_iterator(path)) {
+	for (auto& entry : fs::directory_iterator(path)) {
 		string p = entry.path().filename().string();
 		int pos = p.find(".");
 		string dni = p.substr(pos);
@@ -147,11 +148,11 @@ list<Medico> FileProvider::GetMedicos() const
 	return result;
 }
 
-list<Paciente> FileProvider::GetPacientes() const
+list<Paciente> FileProvider::GetPacientes() 
 {
 	list<Paciente> result = *(new list<Paciente>());
 	std::string path = "data/pacientes";
-	for (const auto& entry : fs::directory_iterator(path)) {
+	for (auto& entry : fs::directory_iterator(path)) {
 		string p = entry.path().filename().string();
 		int pos = p.find(".");
 		string dni = p.substr(0,pos);
@@ -161,11 +162,11 @@ list<Paciente> FileProvider::GetPacientes() const
 	return result; 
 }
 
-list<Cita> FileProvider::GetCitas() const
+list<Cita> FileProvider::GetCitas() 
 {
 	list<Cita> result = *(new list<Cita>());
 	std::string path = "data/citas";
-	for (const auto& entry : fs::directory_iterator(path)) {
+	for (auto& entry : fs::directory_iterator(path)) {
 		string p = entry.path().filename().string();
 		int pos = p.find(".");
 		string dnis = p.substr(pos);
@@ -177,13 +178,13 @@ list<Cita> FileProvider::GetCitas() const
 	return result;
 }
 
-Medico FileProvider::GetMedico(string dni) const
+Medico FileProvider::GetMedico(string dni) 
 {
 	//std::filesystem::path filepath = std::string("data\\medicos\\" + dni);
 	string path = "data/medicos/" + dni + ".json";
 	bool exists = PathExists(path);
 	if (!exists) {
-		throw exception("No existe el path");
+		throw runtime_error("No existe el path");
 	}
 	string text = ReadFile(path);
 	json js = json::parse(text);
@@ -193,12 +194,12 @@ Medico FileProvider::GetMedico(string dni) const
 
 }
 
-Paciente FileProvider::GetPaciente(string dni) const
+Paciente FileProvider::GetPaciente(string dni) 
 {
 	string path = "data/pacientes/" + dni + ".json";
 	bool exists = PathExists(path);
 	if (!exists) {
-		throw exception("No existe el path");
+		throw runtime_error("No existe el path");
 	}
 	string text = ReadFile(path);
 	json js = json::parse(text);
@@ -208,33 +209,34 @@ Paciente FileProvider::GetPaciente(string dni) const
 
 }
 
-Cita FileProvider::GetCita(string dniPac, string dniMed) const
+Cita FileProvider::GetCita(string dniPac, string dniMed) 
 {
-	string path = "data/citas/" + dniPac + "-" + dniMed + ".json";
-	bool exists = PathExists(path);
+
+	std::filesystem::path path = "data/citas/" + dniPac + "-" + dniMed + ".json";
+	bool exists = PathExists(path.string());
 	if (!exists) {
-		throw exception("No existe el path");
+		throw runtime_error("No existe el path");
 	}
-	string text = ReadFile(path);
+	string text = ReadFile(path.string());
 	json js = json::parse(text);
 	Cita p = js;
 	return p;
 }
 
-bool FileProvider::UpdateMedico(Medico* medico) const
+bool FileProvider::UpdateMedico(Medico* medico) 
 {
-	string path = "data/medicos/" + medico->DNI + ".json";
-	fstream file = GetFile(path);
+	std::filesystem::path path = "data/medicos/" + medico->DNI + ".json";
+	fstream file = GetFile(path.string());
 	json js = *medico;
 	file << js.dump();
 	file.close();
 	return true;
 }
 
-bool FileProvider::UpdatePaciente(Paciente* pac) const
+bool FileProvider::UpdatePaciente(Paciente* pac) 
 {
-	string path = "data/pacientes/" + pac->DNI + ".json";
-	fstream file = GetFile(path);
+	std::filesystem::path path = "data/pacientes/" + pac->DNI + ".json";
+	fstream file = GetFile(path.string());
 
 	json js = *pac;
 	string text = js.dump();
@@ -243,32 +245,32 @@ bool FileProvider::UpdatePaciente(Paciente* pac) const
 	return true;
 }
 
-bool FileProvider::UpdateCita(Cita* cita) const
+bool FileProvider::UpdateCita(Cita* cita) 
 {
-	string path =  "data/citas/" + cita->Paciente.DNI + "-" + cita->Medico.DNI + ".json";
-	fstream file = GetFile(path);
+	std::filesystem::path path = "data/citas/" + cita->MedicalPatient.DNI + "-" + cita->Doctor.DNI + ".json";
+	fstream file = GetFile(path.string());
 	json js = *cita;
 	file << js.dump();
 	file.close();
 	return true;
 }
 
-bool FileProvider::DeleteMedico(Medico* medico) const
+bool FileProvider::DeleteMedico(Medico* medico) 
 {
-	string path =  "data/medicos/" + medico->DNI + ".json";
-	return std::filesystem::remove(path);
+	std::filesystem::path path = "data/medicos/" + medico->DNI + ".json";
+	return std::filesystem::remove(path.string());
 }
 
-bool FileProvider::DeletePaciente(Paciente* pac) const
+bool FileProvider::DeletePaciente(Paciente* pac) 
 {
-	string path =  "data/pacientes/" + pac->DNI + ".json";
-	return std::filesystem::remove(path);
+	std::filesystem::path path = "data/pacientes/" + pac->DNI + ".json";
+	return std::filesystem::remove(path.string());
 }
 
-bool FileProvider::DeleteCita(Cita* cita) const
+bool FileProvider::DeleteCita(Cita* cita) 
 {
-	string path =  "data/citas/" + cita->Paciente.DNI + "-" + cita->Medico.DNI + ".json";
-	return std::filesystem::remove(path);
+	std::filesystem::path path = "data/citas/" + cita->MedicalPatient.DNI + "-" + cita->Doctor.DNI + ".json";
+	return std::filesystem::remove(path.string());
 
 }
 

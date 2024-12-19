@@ -9,18 +9,18 @@ class IDataProvider
 {
 public:
 
-	virtual list<Medico> GetMedicos() const;
-	virtual list<Paciente> GetPacientes() const;
-	virtual list<Cita> GetCitas() const;
-	virtual Medico GetMedico(string dni) const;
-	virtual Paciente GetPaciente(string dni) const;
-	virtual Cita GetCita(string dniPac, string dniMed) const;
+	virtual list<Medico> GetMedicos() ;
+	virtual list<Paciente> GetPacientes() ;
+	virtual list<Cita> GetCitas() ;
+	virtual Medico GetMedico(string dni) ;
+	virtual Paciente GetPaciente(string dni) ;
+	virtual Cita GetCita(string dniPac, string dniMed) ;
 
-	virtual bool UpdateMedico(Medico* medico) const;
-	virtual bool UpdatePaciente(Paciente* paciente) const;
-	virtual bool UpdateCita(Cita* cita) const;
-	virtual bool DeleteMedico(Medico* med) const;
-	virtual bool DeleteCita(Cita* cita ) const;
-	virtual bool DeletePaciente(Paciente* paciente) const;
+	virtual bool UpdateMedico(Medico* medico) ;
+	virtual bool UpdatePaciente(Paciente* paciente) ;
+	virtual bool UpdateCita(Cita* cita) ;
+	virtual bool DeleteMedico(Medico* med) ;
+	virtual bool DeleteCita(Cita* cita ) ;
+	virtual bool DeletePaciente(Paciente* paciente) ;
 
 };

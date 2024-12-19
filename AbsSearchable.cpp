@@ -14,7 +14,7 @@ list<T> AbsSearchable<T>::GetResults() const {
 template <typename T>
 void AbsSearchable<T>::ToggleFiltro(Filtro<T> filtro) {
 	bool found = false;
-	for each (Filtro<T> filto in ActiveFiltros)
+	for (Filtro<T> filto : ActiveFiltros)
 	{
 		if (filtro.nombre == filto.nombre) {
 			ActiveFiltros.remove(filto);
