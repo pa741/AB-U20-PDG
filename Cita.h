@@ -14,7 +14,9 @@ public:
 	{
 	}
 	Medico Doctor;
-	
+	bool Save();
+	bool Delete();
+	string ToReport();
 	Paciente MedicalPatient;
 	string Descripcion;
 };

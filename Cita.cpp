@@ -2,17 +2,16 @@
 #include "IDataProvider.h"
 #include "Cita.h"
 #include <list>
-namespace Data {
-	class Cita : IRecord {
-	public:
-
-		Cita(IDataProvider* proveedor) : IRecord(proveedor)
-		{
-	
-		}
-		bool Save() {
-			return false;
-		}
-
-	};
+#include <string>
+bool Cita::Save()
+{
+	return ProveedorDatos->UpdateCita(this);
+}
+bool Cita::Delete()
+{
+	return ProveedorDatos->DeleteCita(this);
+}
+string Cita::ToReport()
+{
+	return "Cita con " + MedicalPatient.Nombre + " con el doctor " + Doctor.Nombre + " Descripcion: " + Descripcion;
 }
