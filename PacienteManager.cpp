@@ -1,5 +1,5 @@
 #include "PacienteManager.h"
-#include "Paciente.h";
+#include "Paciente.h"
 #include <iostream>
 #include <string>
 #include <vector>

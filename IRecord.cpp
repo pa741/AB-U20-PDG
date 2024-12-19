@@ -1,4 +1,4 @@
-#pragma once
+
 #include <string>
 #include "IRecord.h"
 using namespace std;

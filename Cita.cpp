@@ -11,6 +11,7 @@ namespace Data {
 	
 		}
 		bool Save() {
+			return false;
 		}
 
 	};
