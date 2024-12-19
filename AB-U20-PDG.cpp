@@ -10,13 +10,8 @@ int main()
 
 	
 	FileProvider* test = new FileProvider();
-	test->GetPacientes();
-	test->GetMedicos();
-	test->GetCitas();
-	CLI interface = *new CLI(test);
-	while (interface.Run())
-	{
 
-	}
+	CLI interface = *new CLI(test);
+	while (interface.Run()){} 
 	return 0;
 }
