@@ -1,147 +1,138 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Archivos de origen">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Archivos de encabezado">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Archivos de recursos">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Archivos de origen\Models">
-      <UniqueIdentifier>{a9dc74a6-60be-400f-80a5-2a8f7dee1699}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Models\DataProviders">
-      <UniqueIdentifier>{65ebc79d-8edf-4898-ba01-e5c32045c3bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Models\Data">
-      <UniqueIdentifier>{27fe07f6-4a74-4801-bf37-051a249e1a03}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Abstract">
-      <UniqueIdentifier>{36fc24da-c615-472d-8e38-d52b0955f870}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Data">
-      <UniqueIdentifier>{322bbbea-b41a-484b-845a-67f45358ba3c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Models\Abstract">
-      <UniqueIdentifier>{b111718c-8343-4c28-a6ba-01c7287b6301}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\DataProviders">
-      <UniqueIdentifier>{cd5ae7c5-acf8-42cc-8787-62db2f8b3d1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Search">
-      <UniqueIdentifier>{7a64cfd9-85fe-4e76-bf90-1ceb4576809f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\Models\Managers">
-      <UniqueIdentifier>{42283971-3a33-40f3-a2b1-246bf5f7c127}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\Managers">
-      <UniqueIdentifier>{9c253f28-098d-4135-9853-59e13484075e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de origen\CLI">
-      <UniqueIdentifier>{18ac1b28-0809-4803-b1d6-2ea4b0757185}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Archivos de encabezado\CLI">
-      <UniqueIdentifier>{d6d52e0f-6aeb-4b65-ad50-13b140a0ef2a}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="AB-U20-PDG.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="AbsPersona.h">
-      <Filter>Archivos de encabezado\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="IDataProvider.h">
-      <Filter>Archivos de encabezado\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="IRecord.h">
-      <Filter>Archivos de encabezado\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="Cita.h">
-      <Filter>Archivos de encabezado\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Paciente.h">
-      <Filter>Archivos de encabezado\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="Medico.h">
-      <Filter>Archivos de encabezado\Data</Filter>
-    </ClInclude>
-    <ClInclude Include="FileProvider.h">
-      <Filter>Archivos de encabezado\DataProviders</Filter>
-    </ClInclude>
-    <ClInclude Include="json.hpp">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="AbsSearchable.h">
-      <Filter>Archivos de encabezado\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="Filtro.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="AbsOrdernable.h">
-      <Filter>Archivos de encabezado\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="PacienteManager.h">
-      <Filter>Archivos de encabezado\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="MedicoManager.h">
-      <Filter>Archivos de encabezado\Managers</Filter>
-    </ClInclude>
-    <ClInclude Include="CLI.h">
-      <Filter>Archivos de encabezado\CLI</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="AB-U20-PDG.cpp">
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AB-U20-PDG.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="FileProvider.cpp">
-      <Filter>Archivos de origen\Models\DataProviders</Filter>
-    </ClCompile>
-    <ClCompile Include="DBProvider.cpp">
-      <Filter>Archivos de origen\Models\DataProviders</Filter>
-    </ClCompile>
-    <ClCompile Include="Paciente.cpp">
-      <Filter>Archivos de origen\Models\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="Medico.cpp">
-      <Filter>Archivos de origen\Models\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="Cita.cpp">
-      <Filter>Archivos de origen\Models\Data</Filter>
-    </ClCompile>
-    <ClCompile Include="IDataProvider.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="IRecord.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="AbsPersona.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="AbsSearchable.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="AbsOrdernable.cpp">
-      <Filter>Archivos de origen\Models\Abstract</Filter>
-    </ClCompile>
-    <ClCompile Include="PacienteManager.cpp">
-      <Filter>Archivos de origen\Models\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="MedicoManager.cpp">
-      <Filter>Archivos de origen\Models\Managers</Filter>
-    </ClCompile>
-    <ClCompile Include="CLI.cpp">
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\CLI.cpp">
       <Filter>Archivos de origen\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsOrdernable.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsPersona.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsSearchable.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\IDataProvider.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\IRecord.cpp">
+      <Filter>Archivos de origen\Models\Abstract</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\Cita.cpp">
+      <Filter>Archivos de origen\Models\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\Medico.cpp">
+      <Filter>Archivos de origen\Models\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\Paciente.cpp">
+      <Filter>Archivos de origen\Models\Data</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\DBProvider.cpp">
+      <Filter>Archivos de origen\Models\DataProviders</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\FileProvider.cpp">
+      <Filter>Archivos de origen\Models\DataProviders</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\MedicoManager.cpp">
+      <Filter>Archivos de origen\Models\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\PacienteManager.cpp">
+      <Filter>Archivos de origen\Models\Managers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AB-U20-PDG.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Filtro.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\json.hpp">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsOrdernable.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsPersona.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsSearchable.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\IDataProvider.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\IRecord.h">
+      <Filter>Archivos de encabezado\Abstract</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\CLI.h">
+      <Filter>Archivos de encabezado\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Cita.h">
+      <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Medico.h">
+      <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Paciente.h">
+      <Filter>Archivos de encabezado\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\FileProvider.h">
+      <Filter>Archivos de encabezado\DataProviders</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\MedicoManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\PacienteManager.h">
+      <Filter>Archivos de encabezado\Managers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\pablo\source\repos\AB-U20-PDG\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Archivos de encabezado">
+      <UniqueIdentifier>{D6D4AC9B-29B4-323B-A247-409D852B2266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Abstract">
+      <UniqueIdentifier>{32EB2C82-AD37-3E9B-8A9A-A624F4F3AEB1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\CLI">
+      <UniqueIdentifier>{84F0C881-5E50-33A0-976F-298CF6ADDBD6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Data">
+      <UniqueIdentifier>{94894EA0-F37D-3014-9862-0AA5D8B2D1B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\DataProviders">
+      <UniqueIdentifier>{9E4C902B-6123-3D77-B1FB-163D9935927C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Managers">
+      <UniqueIdentifier>{F4D08619-5214-3B88-9DEC-2B695332BA0C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen">
+      <UniqueIdentifier>{BB1435F9-4F81-3A14-852E-F99EAC872371}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\CLI">
+      <UniqueIdentifier>{20719DF7-E668-3054-9E1D-3486C13F661E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models">
+      <UniqueIdentifier>{8CF5F852-0B60-3177-B3F7-DF25F938E78B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models\Abstract">
+      <UniqueIdentifier>{7D4C69AC-1A4D-3C9D-A23C-FD5E1750718B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models\Data">
+      <UniqueIdentifier>{3BBEFD03-6876-35FE-BA43-D3D655CD998A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models\DataProviders">
+      <UniqueIdentifier>{C26444E7-2831-3056-839D-4EE1042FBCC0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de origen\Models\Managers">
+      <UniqueIdentifier>{00580948-D5B1-3742-8DDB-90B3064762F3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>

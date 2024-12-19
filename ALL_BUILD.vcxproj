@@ -3,6 +3,9 @@
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -14,24 +17,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{D89CEA99-BB29-3E15-99F5-177E5D46DBD1}</ProjectGuid>
+    <ProjectGuid>{BB707502-9451-3B20-8DFB-81214D7A76B0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
-    <ProjectName>AB-U20-PDG</ProjectName>
+    <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>Application</ConfigurationType>
-    <CharacterSet>Unicode</CharacterSet>
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v143</PlatformToolset>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -42,42 +44,10 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\pablo\source\repos\AB-U20-PDG\x64\Debug\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AB-U20-PDG.dir\Debug\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">AB-U20-PDG</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\pablo\source\repos\AB-U20-PDG\x64\Release\</OutDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AB-U20-PDG.dir\Release\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">AB-U20-PDG</TargetName>
-    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></LinkIncremental>
-    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <ConformanceMode>true</ConformanceMode>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <MinimalRebuild></MinimalRebuild>
-      <Optimization></Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
-      <SDLCheck>true</SDLCheck>
-      <SupportJustMyCode></SupportJustMyCode>
-      <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);_DEBUG;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -86,44 +56,8 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/pablo/source/repos/AB-U20-PDG/x64/Debug/AB-U20-PDG.lib</ImportLibrary>
-      <ProgramDataBaseFile>C:/Users/pablo/source/repos/AB-U20-PDG/x64/Debug/AB-U20-PDG.pdb</ProgramDataBaseFile>
-      <SubSystem>Console</SubSystem>
-    </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <ClCompile>
-      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
-      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
-      <ConformanceMode>true</ConformanceMode>
-      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <ExceptionHandling>Sync</ExceptionHandling>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <MinimalRebuild></MinimalRebuild>
-      <Optimization></Optimization>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <SDLCheck>true</SDLCheck>
-      <SupportJustMyCode></SupportJustMyCode>
-      <UseFullPaths>false</UseFullPaths>
-      <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);NDEBUG;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
-      <ObjectFileName>$(IntDir)</ObjectFileName>
-      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
-    </ClCompile>
-    <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;NDEBUG;_CONSOLE;UNICODE;_UNICODE;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-    </ResourceCompile>
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -132,20 +66,6 @@
       <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
-    <Link>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
-      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>C:/Users/pablo/source/repos/AB-U20-PDG/x64/Release/AB-U20-PDG.lib</ImportLibrary>
-      <OptimizeReferences>true</OptimizeReferences>
-      <ProgramDataBaseFile>C:/Users/pablo/source/repos/AB-U20-PDG/x64/Release/AB-U20-PDG.pdb</ProgramDataBaseFile>
-      <SubSystem>Console</SubSystem>
-    </Link>
-    <ProjectReference>
-      <LinkLibraryDependencies>false</LinkLibraryDependencies>
-    </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\pablo\source\repos\AB-U20-PDG\CMakeLists.txt">
@@ -179,35 +99,6 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AB-U20-PDG.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Filtro.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\json.hpp" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsOrdernable.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsPersona.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsSearchable.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\IDataProvider.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\IRecord.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\CLI.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Cita.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Medico.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\Paciente.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\FileProvider.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\MedicoManager.h" />
-    <ClInclude Include="C:\Users\pablo\source\repos\AB-U20-PDG\PacienteManager.h" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AB-U20-PDG.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\CLI.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsOrdernable.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsPersona.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\AbsSearchable.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\IDataProvider.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\IRecord.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\Cita.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\Medico.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\Paciente.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\DBProvider.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\FileProvider.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\MedicoManager.cpp" />
-    <ClCompile Include="C:\Users\pablo\source\repos\AB-U20-PDG\PacienteManager.cpp" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -216,6 +107,10 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\pablo\source\repos\AB-U20-PDG\AB-U20-PDG.vcxproj">
+      <Project>{D89CEA99-BB29-3E15-99F5-177E5D46DBD1}</Project>
+      <Name>AB-U20-PDG</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
