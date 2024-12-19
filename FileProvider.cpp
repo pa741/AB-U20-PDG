@@ -77,7 +77,6 @@ namespace nlohmann {
 		// one argument
 		static Cita from_json(const json& j) {
 			{
-				printf("Cita from json");
 				IDataProvider* prov = FileProvider::getInstance();
 				Cita p = *new Cita(prov);
 				string dniMed = j["Medico"];
@@ -141,7 +140,7 @@ list<Medico> FileProvider::GetMedicos()
 	for (auto& entry : fs::directory_iterator(path)) {
 		string p = entry.path().filename().string();
 		int pos = p.find(".");
-		string dni = p.substr(pos);
+		string dni = p.substr(0,pos);
 		result.push_back(GetMedico(dni));
 
 	}
@@ -169,10 +168,10 @@ list<Cita> FileProvider::GetCitas()
 	for (auto& entry : fs::directory_iterator(path)) {
 		string p = entry.path().filename().string();
 		int pos = p.find(".");
-		string dnis = p.substr(pos);
+		string dnis = p.substr(0,pos);
 		int delimiterPos = dnis.find("-");
-		string dniPac = p.substr(0, delimiterPos);
-		string dnimed = p.substr(delimiterPos);
+		string dniPac = dnis.substr(0, delimiterPos);
+		string dnimed = dnis.substr(delimiterPos + 1);
 		result.push_back(GetCita(dniPac,dnimed));
 	}
 	return result;
@@ -225,9 +224,13 @@ Cita FileProvider::GetCita(string dniPac, string dniMed)
 
 bool FileProvider::UpdateMedico(Medico* medico) 
 {
+	printf("Update medico");
 	std::filesystem::path path = "data/medicos/" + medico->DNI + ".json";
+	printf("Path: %s", path.string().c_str());
 	fstream file = GetFile(path.string());
+	printf("File");
 	json js = *medico;
+	printf("Json: %s", js.dump().c_str());
 	file << js.dump();
 	file.close();
 	return true;

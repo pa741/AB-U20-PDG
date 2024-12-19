@@ -124,6 +124,7 @@ source_group("Archivos de encabezado\\DataProviders" FILES ${Archivos_de_encabez
 set(Archivos_de_encabezado__Managers
     "MedicoManager.h"
     "PacienteManager.h"
+    "CitaManager.h"
 )
 source_group("Archivos de encabezado\\Managers" FILES ${Archivos_de_encabezado__Managers})
 
@@ -162,6 +163,7 @@ source_group("Archivos de origen\\Models\\DataProviders" FILES ${Archivos_de_ori
 set(Archivos_de_origen__Models__Managers
     "MedicoManager.cpp"
     "PacienteManager.cpp"
+    "CitaManager.cpp"
 )
 source_group("Archivos de origen\\Models\\Managers" FILES ${Archivos_de_origen__Models__Managers})
 

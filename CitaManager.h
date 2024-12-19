@@ -1,5 +1,8 @@
 #pragma once
 #include "AbsSearchable.h"
+#include "Cita.h"
+#include "Medico.h"
+#include "Paciente.h"
 class CitaManager : public AbsSearchable<Cita>
 {
 public:

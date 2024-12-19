@@ -8,11 +8,16 @@ public:
 	CLI(IDataProvider* proveedor) {
 		ProveedorDatos = proveedor;
 	
-		//Pacientes = *new PacienteManager(proveedor);
+		Pacientes = *new PacienteManager(proveedor);
+		Medicos = *new MedicoManager(proveedor);
+		Citas = *new CitaManager(proveedor);
 	}
 	bool Run();
 	void MostrarMenu();
 	bool RunPacientes();
+	bool RunMedicos();
+	bool RunCitas();
+	//Pacientes
 	void MostrarMenuPacientes();
 	bool RunMostrarPacientes(int* page);
 	void MostrarPacientesMenu(int* page);
@@ -21,6 +26,26 @@ public:
 	bool RunSeleccionarPaciente(Paciente pac);
 	void MenuSeleccionarPaciente(Paciente pac);
 	void DarAltaPaciente();
+	//Medicos
+	void MostrarMenuMedicos();
+	bool RunMostrarMedicos(int* page);
+	void MostrarMedicosMenu(int* page);
+	Medico GetMedicoEnPag(int page, int pos);
+	bool MostrarMedicos(int page);
+	bool RunSeleccionarMedico(Medico med);
+	void MenuSeleccionarMedico(Medico med);
+	void DarAltaMedico();
+	//Citas
+	void MostrarMenuCitas();
+	bool RunMostrarCitas(int* page);
+	void MostrarCitasMenu(int* page);
+	Cita GetCitaEnPag(int page, int pos);
+	bool MostrarCitas(int page);
+	bool RunSeleccionarCita(Cita cit);
+	void MenuSeleccionarCita(Cita cit);
+	void DarAltaCita();
+	
+
 	IDataProvider* ProveedorDatos;
 	PacienteManager Pacientes{ProveedorDatos};
 	MedicoManager Medicos{ProveedorDatos};
