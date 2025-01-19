@@ -252,13 +252,13 @@ Cita FileProvider::GetCita(string dniPac, string dniMed)
 
 bool FileProvider::UpdateMedico(Medico* medico) 
 {
-	printf("Update medico");
+	//printf("Update medico");
 	std::filesystem::path path = "data/medicos/" + medico->DNI + ".json";
-	printf("Path: %s", path.string().c_str());
+	//printf("Path: %s", path.string().c_str());
 	fstream file = GetFile(path.string());
-	printf("File");
+	//printf("File");
 	json js = *medico;
-	printf("Json: %s", js.dump().c_str());
+	//printf("Json: %s", js.dump().c_str());
 	file << js.dump();
 	file.close();
 	return true;

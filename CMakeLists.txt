@@ -91,6 +91,7 @@ set(PROJECT_NAME AB-U20-PDG)
 set(Archivos_de_encabezado
     "AB-U20-PDG.h"
     "Filtro.h"
+    "FakeData.h"
     "json.hpp"
 )
 source_group("Archivos de encabezado" FILES ${Archivos_de_encabezado})
@@ -101,6 +102,7 @@ set(Archivos_de_encabezado__Abstract
     "AbsSearchable.h"
     "IDataProvider.h"
     "IRecord.h"
+    ""
 )
 source_group("Archivos de encabezado\\Abstract" FILES ${Archivos_de_encabezado__Abstract})
 
