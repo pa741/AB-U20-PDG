@@ -10,6 +10,7 @@ public:
     {
     }
     list<Cita> GetAllItems() const;
+    int GetTotalItemCount() const;
     bool DarAlta() const;
     bool DarBaja(Cita *pac) const;
     string search1;

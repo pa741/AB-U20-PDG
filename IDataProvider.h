@@ -10,8 +10,11 @@ class IDataProvider
 public:
 
 	virtual list<Medico> GetMedicos() ;
+	virtual int GetMedicosCount() ;
 	virtual list<Paciente> GetPacientes() ;
+	virtual int GetPacientesCount() ;
 	virtual list<Cita> GetCitas() ;
+	virtual int GetCitasCount() ;
 	virtual Medico GetMedico(string dni) ;
 	virtual Paciente GetPaciente(string dni) ;
 	virtual Cita GetCita(string dniPac, string dniMed) ;

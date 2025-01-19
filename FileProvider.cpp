@@ -146,6 +146,15 @@ list<Medico> FileProvider::GetMedicos()
 	}
 	return result;
 }
+int FileProvider::GetMedicosCount() 
+{
+	std::string path = "data/medicos";
+	int count = 0;
+	for (auto& entry : fs::directory_iterator(path)) {
+		count++;
+	}
+	return count;
+}
 
 list<Paciente> FileProvider::GetPacientes() 
 {
@@ -159,6 +168,15 @@ list<Paciente> FileProvider::GetPacientes()
 		result.push_back(pac);
 	}
 	return result; 
+}
+int FileProvider::GetPacientesCount() 
+{
+	std::string path = "data/pacientes";
+	int count = 0;
+	for (auto& entry : fs::directory_iterator(path)) {
+		count++;
+	}
+	return count;
 }
 
 list<Cita> FileProvider::GetCitas() 
@@ -175,6 +193,16 @@ list<Cita> FileProvider::GetCitas()
 		result.push_back(GetCita(dniPac,dnimed));
 	}
 	return result;
+}
+int FileProvider::GetCitasCount() 
+{
+	std::string path = "data/citas";
+	int count = 0;
+	
+	for (auto& entry : fs::directory_iterator(path)) {
+		count++;
+	}
+	return count;
 }
 
 Medico FileProvider::GetMedico(string dni) 

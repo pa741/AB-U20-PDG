@@ -21,4 +21,6 @@ public:
 	bool Save();
 	bool Delete();
 	string ToReport();
+	bool validarDNI(string dni);
+	bool AddBaseInputData();
 };

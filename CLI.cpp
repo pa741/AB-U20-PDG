@@ -5,8 +5,7 @@
 #include "Cita.h"
 #include "IDataProvider.h"
 
-
-int GetOption()
+int GetOption(int max)
 {
 	string respuesta;
 	cin >> respuesta;
@@ -25,26 +24,38 @@ int GetOption()
 		cout << "Error. Numero muy grande";
 		return -1;
 	}
+	if (option < 0 || option > max)
+	{
+
+		cout << "Error. Opcion no valida \n";
+		return -1;
+	}
 	return option;
 }
 bool CLI::Run()
 {
 	MostrarMenu();
 
-	int option = GetOption();
+	int option = GetOption(3);
 	if (option == -1)
 		return false;
 	switch (option)
 	{
 	case 1:
-		while (RunPacientes()){}
+		while (RunPacientes())
+		{
+		}
 		break;
 	case 2:
-		while (RunMedicos()){}
+		while (RunMedicos())
+		{
+		}
 		break;
 	case 3:
-		while (RunCitas()){}
-		break;		
+		while (RunCitas())
+		{
+		}
+		break;
 	case 0:
 	default:
 		cout << "Saliendo...";
@@ -62,7 +73,7 @@ void CLI::MostrarMenu()
 bool CLI::RunPacientes()
 {
 	MostrarMenuPacientes();
-	int option = GetOption();
+	int option = GetOption(2);
 	if (option == -1)
 		return false;
 
@@ -102,11 +113,25 @@ bool CLI::RunMostrarPacientes(int *page)
 		(*page)--;
 		cout << "Has llegado al final \n";
 	}
-	MostrarPacientesMenu(page);
 
-	int option = GetOption();
+	int pageSize = Pacientes.PageSize;
+	int total = Pacientes.GetTotalItemCount();
+	int totalPages = total / pageSize;
+
+	MostrarPacientesMenu(page, totalPages);
+	int max = 3;
+	if (*page == 0)
+	{
+		max--;
+	}
+	if (*page == totalPages)
+	{
+		max--;
+	}
+
+	int option = GetOption(max);
 	if (option == -1)
-		return false;
+		return true;
 
 	switch (option)
 	{
@@ -125,8 +150,14 @@ bool CLI::RunMostrarPacientes(int *page)
 	case 3:
 	{
 		cout << "Introduce el indice del paciente que se quiere seleccionar...\n";
-		int index = GetOption();
-		index--; // empezamos en 0;
+		int maxIndex = Pacientes.PageSize;
+		if (*page == totalPages)
+		{
+			maxIndex = total % Pacientes.PageSize;
+		}
+
+		int index = GetOption(maxIndex);
+		index--;	   // empezamos en 0;
 		Paciente pac = GetPacienteEnPag((*page), index);
 		while (RunSeleccionarPaciente(pac))
 		{
@@ -142,7 +173,7 @@ bool CLI::RunMostrarPacientes(int *page)
 
 	return true;
 }
-void CLI::MostrarPacientesMenu(int *page)
+void CLI::MostrarPacientesMenu(int *page, int totalPages)
 {
 	cout << "-------------------------------------------------\n";
 	cout << "LISTA PACIENTES - PAGINA " + (std::to_string(*page)) + "\n";
@@ -181,7 +212,7 @@ bool CLI::MostrarPacientes(int page)
 bool CLI::RunSeleccionarPaciente(Paciente pac)
 {
 	MenuSeleccionarPaciente(pac);
-	int opcion = GetOption();
+	int opcion = GetOption(2);
 	if (opcion == -1)
 	{
 		return false;
@@ -241,9 +272,9 @@ void CLI::DarAltaPaciente()
 bool CLI::RunMedicos()
 {
 	MostrarMenuMedicos();
-	int option = GetOption();
+	int option = GetOption(2);
 	if (option == -1)
-		return false;
+		return true;
 
 	int page = 0;
 	switch (option)
@@ -281,11 +312,34 @@ bool CLI::RunMostrarMedicos(int *page)
 		(*page)--;
 		cout << "Has llegado al final \n";
 	}
-	MostrarMedicosMenu(page);
 
-	int option = GetOption();
+	int pageSize = Medicos.PageSize;
+	int total = Medicos.GetTotalItemCount();
+	int totalPages = total / pageSize;
+
+	MostrarMedicosMenu(page, totalPages);
+	int max = 3;
+	if (*page == 0)
+	{
+		max--;
+	}
+	if (*page == totalPages)
+	{
+		max--;
+	}
+
+	int option = GetOption(max);
 	if (option == -1)
-		return false;
+		return true;
+	if (option == 1 && *page == 0)
+	{
+		option++;
+	}
+	if (option == 2 && *page == totalPages)
+	{
+		option++;
+	}
+	cout << "Option: " + std::to_string(option) + "\n";
 
 	switch (option)
 	{
@@ -296,7 +350,6 @@ bool CLI::RunMostrarMedicos(int *page)
 			cout << "Estas en el principio \n";
 			(*page) = 0;
 		}
-
 		break;
 	case 2:
 		(*page)++;
@@ -304,7 +357,18 @@ bool CLI::RunMostrarMedicos(int *page)
 	case 3:
 	{
 		cout << "Introduce el indice del medico que se quiere seleccionar...\n";
-		int index = GetOption();
+		int maxIndex = Medicos.PageSize;
+		if (*page == totalPages)
+		{
+			maxIndex = total % Medicos.PageSize;
+		}
+
+		int index = GetOption(maxIndex);
+		if (index <= 0)
+		{
+			cout << "Volviendo al menu...\n";
+			break;
+		}
 		index--; // empezamos en 0;
 		Medico med = GetMedicoEnPag((*page), index);
 		while (RunSeleccionarMedico(med))
@@ -321,14 +385,26 @@ bool CLI::RunMostrarMedicos(int *page)
 
 	return true;
 }
-void CLI::MostrarMedicosMenu(int *page)
+void CLI::MostrarMedicosMenu(int *page, int totalPages) // obtener total de pags
 {
+
 	cout << "-------------------------------------------------\n";
-	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + "\n";
-	cout << "0. Salir\n";
-	cout << "1. Pagina Anterior\n";
-	cout << "2. Pagina Siguiente\n";
-	cout << "3. Seleccionar Medico\n";
+	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	int option = 0;
+	cout << (std::to_string(option)) + ". Salir\n";
+
+	option++;
+	if (*page != 0)
+	{
+		cout << (std::to_string(option)) + ". Pagina Anterior\n";
+		option++;
+	}
+	if (*page != totalPages)
+	{
+		cout << (std::to_string(option)) + ". Pagina Siguiente\n";
+		option++;
+	}
+	cout << (std::to_string(option)) + ". Seleccionar Medico\n";
 }
 Medico CLI::GetMedicoEnPag(int page, int pos)
 {
@@ -359,7 +435,7 @@ bool CLI::MostrarMedicos(int page)
 bool CLI::RunSeleccionarMedico(Medico med)
 {
 	MenuSeleccionarMedico(med);
-	int opcion = GetOption();
+	int opcion = GetOption(2);
 	if (opcion == -1)
 	{
 		return false;
@@ -419,9 +495,9 @@ void CLI::DarAltaMedico()
 bool CLI::RunCitas()
 {
 	MostrarMenuCitas();
-	int option = GetOption();
+	int option = GetOption(2);
 	if (option == -1)
-		return false;
+		return true;
 
 	int page = 0;
 	switch (option)
@@ -459,11 +535,24 @@ bool CLI::RunMostrarCitas(int *page)
 		(*page)--;
 		cout << "Has llegado al final \n";
 	}
-	MostrarCitasMenu(page);
+	int pageSize = Citas.PageSize;
+	int total = Citas.GetTotalItemCount();
+	int totalPages = total / pageSize;
 
-	int option = GetOption();
+	MostrarCitasMenu(page, totalPages);
+	int max = 3;
+	if (*page == 0)
+	{
+		max--;
+	}
+	if (*page == totalPages)
+	{
+		max--;
+	}
+
+	int option = GetOption(max);
 	if (option == -1)
-		return false;
+		return true;
 
 	switch (option)
 	{
@@ -482,8 +571,14 @@ bool CLI::RunMostrarCitas(int *page)
 	case 3:
 	{
 		cout << "Introduce el indice de la cita que se quiere seleccionar...\n";
-		int index = GetOption();
-		index--; // empezamos en 0;
+		int maxIndex = Citas.PageSize;
+		if (*page == totalPages)
+		{
+			maxIndex = total % Citas.PageSize;
+		}
+
+		int index = GetOption(maxIndex);
+		index--;	   // empezamos en 0;
 		Cita cit = GetCitaEnPag((*page), index);
 		while (RunSeleccionarCita(cit))
 		{
@@ -500,7 +595,7 @@ bool CLI::RunMostrarCitas(int *page)
 	return true;
 }
 
-void CLI::MostrarCitasMenu(int *page)
+void CLI::MostrarCitasMenu(int *page, int totalPages)
 {
 	cout << "-------------------------------------------------\n";
 	cout << "LISTA CITAS - PAGINA " + (std::to_string(*page)) + "\n";
@@ -538,7 +633,7 @@ bool CLI::MostrarCitas(int page)
 bool CLI::RunSeleccionarCita(Cita cit)
 {
 	MenuSeleccionarCita(cit);
-	int opcion = GetOption();
+	int opcion = GetOption(2);
 	if (opcion == -1)
 	{
 		return false;

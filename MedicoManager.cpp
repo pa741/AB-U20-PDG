@@ -3,7 +3,7 @@
 #include <iostream>
 list<Medico> MedicoManager::GetAllItems() const
 {
-	return ProveedorDatos->GetMedicos();;
+	return ProveedorDatos->GetMedicos();
 }
 list<Medico> searchFiltro(list<Medico> lista, string search) {
 
@@ -20,10 +20,13 @@ list<Medico> searchFiltro(list<Medico> lista, string search) {
 bool MedicoManager::DarAlta() const
 {
 	Medico* pac = new Medico(ProveedorDatos);
-	cout << "Introduzca el DNI del medico: ";
-	cin >> pac->DNI;
-	cout << "Introduzca el nombre del medico: ";
-	cin >> pac->Nombre;
+	//cout << "Introduzca el DNI del medico: ";
+	//cin >> pac->DNI;
+	//cout << "Introduzca el nombre del medico: ";
+	//cin >> pac->Nombre;
+	if(!pac->AddBaseInputData()){
+		return false;
+	}
 	cout << "Introduzca la especialidad del medico. ";
 	cin >> pac->Especialidad;
 
@@ -48,4 +51,8 @@ list<Filtro<Medico>> MedicoManager::AllFiltros() const
 	filtros.push_back(search);
 	return filtros;
 
+}
+int MedicoManager::GetTotalItemCount() const
+{
+    return ProveedorDatos->GetMedicosCount();
 }

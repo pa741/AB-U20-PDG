@@ -18,6 +18,7 @@ public:
 	IDataProvider* ProveedorDatos;
 	list<Filtro<T>> ActiveFiltros;
 	virtual list<T> GetAllItems() const { return list<T>(); };
+	virtual int GetTotalItemCount() const {return 0;};
 	virtual list<T> GetResults(int page) const {
 		list<T> items = GetAllItems();
 		for (Filtro<T> filto : ActiveFiltros)

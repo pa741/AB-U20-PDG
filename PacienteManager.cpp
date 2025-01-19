@@ -12,10 +12,13 @@ list<Paciente> PacienteManager::GetAllItems() const
 bool PacienteManager::DarAlta() const
 {
 	Paciente* pac = new Paciente(ProveedorDatos);
-	cout << "Introduzca el DNI del paciente: ";
-	cin >> pac->DNI;
-	cout << "Introduzca el nombre del paciente: ";
-	cin >> pac->Nombre;
+	//cout << "Introduzca el DNI del paciente: ";
+	//cin >> pac->DNI;
+	//cout << "Introduzca el nombre del paciente: ";
+	//cin >> pac->Nombre;
+	if(!pac->AddBaseInputData()){
+		return false;
+	}
 	cout << "Introduzca las enfermedades del paciente separadas por comas.";
 	string enfermedades;
 	cin >> enfermedades;
@@ -28,7 +31,7 @@ bool PacienteManager::DarAlta() const
 	}
 	pac->Enfermedades = enfList;
 	return pac->Save();
-}
+} 
 
 bool PacienteManager::DarBaja(Paciente* pac) const
 {
@@ -38,4 +41,8 @@ bool PacienteManager::DarBaja(Paciente* pac) const
 string PacienteManager::GetReporte(Paciente* pac) const
 {
 	return pac->ToReport();
+}
+int PacienteManager::GetTotalItemCount() const
+{
+    return ProveedorDatos->GetMedicosCount();
 }

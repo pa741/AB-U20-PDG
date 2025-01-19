@@ -52,3 +52,8 @@ string CitaManager::GetReporte(Cita* pac) const
 {
     return pac->ToReport();
 }
+
+int CitaManager::GetTotalItemCount() const
+{
+    return ProveedorDatos->GetCitasCount();
+}

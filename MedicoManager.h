@@ -5,6 +5,7 @@ public:
 	MedicoManager(IDataProvider* proveedor) : AbsSearchable<Medico>(proveedor) {
 	}
 	list<Medico> GetAllItems() const;
+	int GetTotalItemCount() const;
 	bool DarAlta() const;
 	bool DarBaja(Medico* pac) const;
 	string search1;

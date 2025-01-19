@@ -20,7 +20,7 @@ public:
 	//Pacientes
 	void MostrarMenuPacientes();
 	bool RunMostrarPacientes(int* page);
-	void MostrarPacientesMenu(int* page);
+	void MostrarPacientesMenu(int* page, int totalPages);
 	Paciente GetPacienteEnPag(int page, int pos);
 	bool MostrarPacientes(int page);
 	bool RunSeleccionarPaciente(Paciente pac);
@@ -29,7 +29,7 @@ public:
 	//Medicos
 	void MostrarMenuMedicos();
 	bool RunMostrarMedicos(int* page);
-	void MostrarMedicosMenu(int* page);
+	void MostrarMedicosMenu(int* page, int totalPages);
 	Medico GetMedicoEnPag(int page, int pos);
 	bool MostrarMedicos(int page);
 	bool RunSeleccionarMedico(Medico med);
@@ -38,7 +38,7 @@ public:
 	//Citas
 	void MostrarMenuCitas();
 	bool RunMostrarCitas(int* page);
-	void MostrarCitasMenu(int* page);
+	void MostrarCitasMenu(int* page, int totalPages);
 	Cita GetCitaEnPag(int page, int pos);
 	bool MostrarCitas(int page);
 	bool RunSeleccionarCita(Cita cit);
