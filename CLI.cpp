@@ -128,10 +128,17 @@ bool CLI::RunMostrarPacientes(int *page)
 	{
 		max--;
 	}
-
 	int option = GetOption(max);
 	if (option == -1)
 		return true;
+	if (option == 1 && *page == 0)
+	{
+		option++;
+	}
+	if (option == 2 && *page == totalPages)
+	{
+		option++;
+	}
 
 	switch (option)
 	{
@@ -175,27 +182,9 @@ bool CLI::RunMostrarPacientes(int *page)
 }
 void CLI::MostrarPacientesMenu(int *page, int totalPages)
 {
-	/*^
-	cout << "-------------------------------------------------\n";
-	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
-	int option = 0;
-	cout << (std::to_string(option)) + ". Salir\n";
 
-	option++;
-	if (*page != 0)
-	{
-		cout << (std::to_string(option)) + ". Pagina Anterior\n";
-		option++;
-	}
-	if (*page != totalPages)
-	{
-		cout << (std::to_string(option)) + ". Pagina Siguiente\n";
-		option++;
-	}
-	cout << (std::to_string(option)) + ". Seleccionar Medico\n";*/
 	cout << "-------------------------------------------------\n";
-	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
-	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	cout << "LISTA PACIENTES - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
 	int option = 0;
 	cout << (std::to_string(option)) + ". Salir\n";
 
@@ -369,7 +358,6 @@ bool CLI::RunMostrarMedicos(int *page)
 	{
 		option++;
 	}
-	cout << "Option: " + std::to_string(option) + "\n";
 
 	switch (option)
 	{
@@ -583,6 +571,14 @@ bool CLI::RunMostrarCitas(int *page)
 	int option = GetOption(max);
 	if (option == -1)
 		return true;
+	if (option == 1 && *page == 0)
+	{
+		option++;
+	}
+	if (option == 2 && *page == totalPages)
+	{
+		option++;
+	}
 
 	switch (option)
 	{
@@ -629,7 +625,7 @@ void CLI::MostrarCitasMenu(int *page, int totalPages)
 {
 
 	cout << "-------------------------------------------------\n";
-	cout << "LISTA Citas - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	cout << "LISTA CITAS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
 	int option = 0;
 	cout << (std::to_string(option)) + ". Salir\n";
 	option++;
