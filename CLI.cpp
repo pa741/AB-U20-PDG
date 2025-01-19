@@ -157,7 +157,7 @@ bool CLI::RunMostrarPacientes(int *page)
 		}
 
 		int index = GetOption(maxIndex);
-		index--;	   // empezamos en 0;
+		index--; // empezamos en 0;
 		Paciente pac = GetPacienteEnPag((*page), index);
 		while (RunSeleccionarPaciente(pac))
 		{
@@ -175,12 +175,42 @@ bool CLI::RunMostrarPacientes(int *page)
 }
 void CLI::MostrarPacientesMenu(int *page, int totalPages)
 {
+	/*^
 	cout << "-------------------------------------------------\n";
-	cout << "LISTA PACIENTES - PAGINA " + (std::to_string(*page)) + "\n";
-	cout << "0. Salir\n";
-	cout << "1. Pagina Anterior\n";
-	cout << "2. Pagina Siguiente\n";
-	cout << "3. Seleccionar Paciente\n";
+	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	int option = 0;
+	cout << (std::to_string(option)) + ". Salir\n";
+
+	option++;
+	if (*page != 0)
+	{
+		cout << (std::to_string(option)) + ". Pagina Anterior\n";
+		option++;
+	}
+	if (*page != totalPages)
+	{
+		cout << (std::to_string(option)) + ". Pagina Siguiente\n";
+		option++;
+	}
+	cout << (std::to_string(option)) + ". Seleccionar Medico\n";*/
+	cout << "-------------------------------------------------\n";
+	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	cout << "LISTA MEDICOS - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	int option = 0;
+	cout << (std::to_string(option)) + ". Salir\n";
+
+	option++;
+	if (*page != 0)
+	{
+		cout << (std::to_string(option)) + ". Pagina Anterior\n";
+		option++;
+	}
+	if (*page != totalPages)
+	{
+		cout << (std::to_string(option)) + ". Pagina Siguiente\n";
+		option++;
+	}
+	cout << (std::to_string(option)) + ". Seleccionar Paciente\n";
 }
 Paciente CLI::GetPacienteEnPag(int page, int pos)
 {
@@ -578,7 +608,7 @@ bool CLI::RunMostrarCitas(int *page)
 		}
 
 		int index = GetOption(maxIndex);
-		index--;	   // empezamos en 0;
+		index--; // empezamos en 0;
 		Cita cit = GetCitaEnPag((*page), index);
 		while (RunSeleccionarCita(cit))
 		{
@@ -597,12 +627,23 @@ bool CLI::RunMostrarCitas(int *page)
 
 void CLI::MostrarCitasMenu(int *page, int totalPages)
 {
+
 	cout << "-------------------------------------------------\n";
-	cout << "LISTA CITAS - PAGINA " + (std::to_string(*page)) + "\n";
-	cout << "0. Salir\n";
-	cout << "1. Pagina Anterior\n";
-	cout << "2. Pagina Siguiente\n";
-	cout << "3. Seleccionar Cita\n";
+	cout << "LISTA Citas - PAGINA " + (std::to_string(*page)) + " de " + (std::to_string(totalPages)) + "\n";
+	int option = 0;
+	cout << (std::to_string(option)) + ". Salir\n";
+	option++;
+	if (*page != 0)
+	{
+		cout << (std::to_string(option)) + ". Pagina Anterior\n";
+		option++;
+	}
+	if (*page != totalPages)
+	{
+		cout << (std::to_string(option)) + ". Pagina Siguiente\n";
+		option++;
+	}
+	cout << (std::to_string(option)) + ". Seleccionar Cita\n";
 }
 Cita CLI::GetCitaEnPag(int page, int pos)
 {
